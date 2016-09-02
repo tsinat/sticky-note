@@ -6,11 +6,11 @@ var AppAPI = require('../utils/appAPI.js');
 
 var CHANGE_EVENT = 'change';
 
-var _items = [];
+var _notes = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
-    setMovieResults: function(movies){
-        _movies = movies;
+    setMovieResults: function(notes){
+        _notes = notes;
     },
     emitChange: function() {
         this.emit(CHANGE_EVENT);
@@ -27,7 +27,8 @@ AppDispatcher.register(function(payload) {
     var action = payload.action;
 
     switch(action.actonType){
-        
+        case AppConstants.ADD_NOTE:
+        console.log('Adding Notes', action.note)
     }
 
     return true;

@@ -1,6 +1,7 @@
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStore');
+var AddNoteForm = require('./AddNoteForm');
 
 function getAppState() {
     return {
@@ -20,8 +21,20 @@ var App = React.createClass({
     },
     render: function() {
         return (
-            <div>
-                My App
+            <div className='container'>
+                <div className='off-canvas-wrapper'>
+                    <div className='off-canvas-wrapper-inner' data-off-canvas-wrapper>
+                        <div className='off-canvas position-left reveal-for-large' data-off-canvas data-position='left'>
+                            <div className='row column'>
+                                <AddNoteForm />
+                                <br />
+                            </div>
+                        </div>
+                        <div className='off-canvas-content' data-off-canvas-content >
+                            // Note List
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     },
