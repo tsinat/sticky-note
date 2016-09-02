@@ -4,7 +4,7 @@ var AppStore = require('../stores/AppStore');
 
 function getAppState() {
     return {
-        movies: AppStore.getMovieResults()
+        // movies: AppStore.getMovieResults()
     }
 }
 
