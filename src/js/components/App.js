@@ -5,7 +5,7 @@ var AddNoteForm = require('./AddNoteForm');
 
 function getAppState() {
     return {
-        // movies: AppStore.getMovieResults()
+        notes:AppStore.getNotes()
     }
 }
 
@@ -20,6 +20,7 @@ var App = React.createClass({
         AppStore.removeChangeListener(this._onChange);
     },
     render: function() {
+        console.log(this.state.notes);
         return (
             <div className='container'>
                 <div className='off-canvas-wrapper'>

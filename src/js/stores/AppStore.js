@@ -9,8 +9,11 @@ var CHANGE_EVENT = 'change';
 var _notes = [];
 
 var AppStore = assign({}, EventEmitter.prototype, {
-    setMovieResults: function(notes){
-        _notes = notes;
+    addNote:function(note){
+        _notes.push(note);
+    },
+    getNotes: function() {
+        return _notes;
     },
     emitChange: function() {
         this.emit(CHANGE_EVENT);
@@ -28,7 +31,10 @@ AppDispatcher.register(function(payload) {
 
     switch(action.actonType){
         case AppConstants.ADD_NOTE:
-        console.log('Adding Notes', action.note)
+        console.log('Adding Notes')
+        AppStore.addNote(action.note);
+        // emit change
+        AppStore.emit(CHANGE_EVENT);
     }
 
     return true;
